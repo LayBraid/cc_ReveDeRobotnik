@@ -91,7 +91,7 @@ def main():
     return
 
 def checkPosition(position, speed):
-    if position < 1200:
+    if position > -1200:
         return position - speed
     else:
         return 0
