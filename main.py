@@ -60,14 +60,12 @@ def main():
                 rect_y = 0
                 running = False
 
-        bg_position_x = checkPosition(bg_position_x, 0)
         bg_middle_position_x = checkPosition(bg_middle_position_x, (1*speed))
         bg_front_position_x = checkPosition(bg_front_position_x, (2*speed))
 
         parallaxe(screen, background, bg_position_x, bg_position_y)
-        parallaxe(screen, background, -1200 + bg_position_x, bg_position_y)
 
-        parallaxe(screen, bg_middle, -1200 + bg_middle_position_x, bg_middle_position_y)
+        parallaxe(screen, bg_middle, 1200 + bg_middle_position_x, bg_middle_position_y)
         parallaxe(screen, bg_middle, bg_middle_position_x, bg_middle_position_y)
 
         if not running:
@@ -85,7 +83,7 @@ def main():
                 screen.blit(spriteImage, (350, 425))
 
         parallaxe(screen, bg_front, bg_front_position_x, bg_front_position_y)
-        parallaxe(screen, bg_front, -1200 + bg_front_position_x, bg_front_position_y)
+        parallaxe(screen, bg_front, 1200 + bg_front_position_x, bg_front_position_y)
 
         pygame.display.flip()
 
@@ -94,7 +92,7 @@ def main():
 
 def checkPosition(position, speed):
     if position < 1200:
-        return position + speed
+        return position - speed
     else:
         return 0
 
